@@ -1,15 +1,61 @@
-.heart {
-  position: absolute;
-  inset: 0;
-  animation: heartBeat 2.6s ease-in-out infinite;
-  transform-origin: 50% 55%;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Animation</title>
+    
+    <style>
+      :root {
+        --peach-glow: rgba(255, 180, 180, 0.8);
+      }
 
-.scene--arrow {
-  background: 
-    radial-gradient(
-      ellipse 60% 55% at 62% 30%,
-      var(--peach-glow) 0%,
-      transparent 70%
-    );
-}
+      body {
+        background-color: #000;
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+
+      .heart {
+        position: absolute;
+        inset: 0;
+        animation: heartBeat 2.6s ease-in-out infinite;
+        transform-origin: 50% 55%;
+        /* Heart ki shape dikhane ke liye SVG ya image use hoti hai */
+        background: red; 
+        clip-path: path("M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z");
+        width: 100px;
+        height: 100px;
+        margin: auto;
+      }
+
+      @keyframes heartBeat {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.3); }
+      }
+
+      .scene--arrow {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: 
+          radial-gradient(
+            ellipse 60% 55% at 62% 30%,
+            var(--peach-glow) 0%,
+            transparent 70%
+          );
+      }
+    </style>
+</head>
+<body>
+
+    <div class="scene--arrow"></div>
+    <div class="heart"></div>
+
+</body>
+  </html>
+
